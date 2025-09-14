@@ -1,56 +1,52 @@
 import { Component, inject } from '@angular/core';
-import { ResourceService, Resource, DayFactor } from '../../services/resource.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { ResourceService, Resource } from '../../services/resource.service';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './header.html',
-  styleUrls: ['./header.scss'], 
+  styleUrls: ['./header.scss']
 })
 export class Header {
-  newResourceName: string = '';
-  newResourcePrice: number = 0;
+  newResourceName = '';
+  newResourcePrice = 0;
+  newDayName = '';
+  newDayFactor = 1;
 
-  newDayName: string = '';
-  newDayFactor: number = 1;
-
-  // constructor(private resourceService: ResourceService) {}
   private resourceService = inject(ResourceService);
-  // private http = inject(HttpClient);
-
 
   addResource() {
+    ///first we need to validate so I put:
     if (!this.newResourceName || this.newResourcePrice <= 0) return;
 
+    ///////now create object for new resource
     const newResource: Resource = {
       name: this.newResourceName,
       basePrice: this.newResourcePrice,
-      days: this.resourceService.days.map(d => ({ ...d })) // clone current days
+      days: this.resourceService.days.map(d => ({ ...d })) 
     };
-
+/////////its time to send the new resource to the backend but now i send to db.json with HTTP
+/////retuns it as an observable and insid it here we have callback function and its runs after http request
     this.resourceService.addResource(newResource).subscribe(() => {
-      this.resourceService.getResources().subscribe(); // reload resources
+      ///// here i fetch our list
+      this.resourceService.getResources().subscribe();
+      //// now i need clear the input fields in the form so my user can add new resource
       this.newResourceName = '';
       this.newResourcePrice = 0;
     });
   }
-
   addDay() {
     if (!this.newDayName || this.newDayFactor <= 0) return;
 
-    // Update the day factor locally
-    // this.resourceService.updateDayFactor(this.newDayName, this.newDayFactor);
+    const day = this.resourceService.days.find(d => d.name === this.newDayName);
+    if (day) day.factor = this.newDayFactor;
 
-    // Update all resources in the DB
     this.resourceService.getResources().subscribe(resources => {
-      resources.forEach(res => {
-        this.resourceService.updateResource(res).subscribe();
-      });
+      resources.forEach(res => this.resourceService.updateResource(res).subscribe());
     });
-
     this.newDayName = '';
     this.newDayFactor = 1;
   }

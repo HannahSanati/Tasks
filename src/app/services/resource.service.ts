@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+/////////////////// replace these to models :))))
 export interface DayFactor {
   name: string;
   factor: number;
@@ -16,15 +16,25 @@ export interface Resource {
   days: DayFactor[];
 }
 
-@Injectable({
-    providedIn: 'root'
-  })
-  
+@Injectable({ providedIn: 'root' })
 export class ResourceService {
-  private http = inject(HttpClient);
-  private apiUrl = `${environment.apiUrl}/resources`;
 
-  constructor() {}
+  private apiUrl = environment.apiUrl;
+
+  days: DayFactor[] = [
+    { name: 'شنبه', factor: 1, checked: false },
+    { name: 'یکشنبه', factor: 1, checked: false },
+    { name: 'دوشنبه', factor: 1, checked: false },
+    { name: 'سه شنبه', factor: 1, checked: false },
+    { name: 'چهارشنبه', factor: 1, checked: false },
+    { name: 'پنجشنبه', factor: 1, checked: false },
+    { name: 'جمعه', factor: 1, checked: false }
+  ];
+
+  constructor(private http: HttpClient) {}
+
+  //////////here we go with our CRUD :))))))
+  /////returns an Observable so we subscribe to it in our components
   getResources(): Observable<Resource[]> {
     return this.http.get<Resource[]>(this.apiUrl);
   }
@@ -37,17 +47,6 @@ export class ResourceService {
     return this.http.put<Resource>(`${this.apiUrl}/${resource.id}`, resource);
   }
 
-  deleteResource(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
-  }
 
-// updateDayFactor(dayName: string, factor: number) {
-//   this.days = this.days.map(d => d.name === dayName ? { ...d, factor } : d);
-// }
-
-days: DayFactor[] = [
-  { name: 'شنبه', factor: 1.2, checked: false },
-  { name: 'یکشنبه', factor: 1.0, checked: false },
-  { name: 'دوشنبه', factor: 1.1, checked: false }
-];
+  ///////// i can add delete yohoooo!
 }

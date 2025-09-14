@@ -1,24 +1,256 @@
 {
-    "resources": [
-      {
-        "id": 1,
-        "name": "منابع انسانی",
-        "basePrice": 100,
-        "days": [
-          { "name": "شنبه", "factor": 1.2, "checked": false },
-          { "name": "یکشنبه", "factor": 1.0, "checked": false },
-          { "name": "دوشنبه", "factor": 1.1, "checked": false }
-        ]
-      },
-      {
-        "id": 2,
-        "name": "ماشین آلات",
-        "basePrice": 250,
-        "days": [
-          { "name": "شنبه", "factor": 1.5, "checked": false },
-          { "name": "یکشنبه", "factor": 1.0, "checked": false },
-          { "name": "دوشنبه", "factor": 0.9, "checked": false }
-        ]
-      }
-    ]
-  }
+  "resources": [
+    {
+      "id": "5a1e",
+      "name": "منابع انسانی",
+      "basePrice": 100,
+      "days": [
+        {
+          "name": "شنبه",
+          "factor": 1.2,
+          "checked": true
+        },
+        {
+          "name": "یکشنبه",
+          "factor": 1,
+          "checked": true
+        },
+        {
+          "name": "دوشنبه",
+          "factor": 1.1,
+          "checked": false
+        },
+        {
+          "name": "سه شنبه",
+          "factor": 1,
+          "checked": true
+        },
+        {
+          "name": "چهارشنبه",
+          "factor": 1,
+          "checked": true
+        },
+        {
+          "name": "پنجشنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "جمعه",
+          "factor": 1,
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "32ac",
+      "name": "ماشین آلات",
+      "basePrice": 200,
+      "days": [
+        {
+          "name": "شنبه",
+          "factor": 1.2,
+          "checked": false
+        },
+        {
+          "name": "یکشنبه",
+          "factor": 1,
+          "checked": true
+        },
+        {
+          "name": "دوشنبه",
+          "factor": 1.1,
+          "checked": false
+        },
+        {
+          "name": "سه شنبه",
+          "factor": 1,
+          "checked": true
+        },
+        {
+          "name": "چهارشنبه",
+          "factor": 1,
+          "checked": true
+        },
+        {
+          "name": "پنجشنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "جمعه",
+          "factor": 1,
+          "checked": true
+        }
+      ]
+    },
+    {
+      "id": "9492",
+      "name": "test",
+      "basePrice": 1000,
+      "days": [
+        {
+          "name": "شنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "یکشنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "دوشنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "سه شنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "چهارشنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "پنجشنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "جمعه",
+          "factor": 1,
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "5972",
+      "name": "test",
+      "basePrice": 1,
+      "days": [
+        {
+          "name": "شنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "یکشنبه",
+          "factor": 2,
+          "checked": false
+        },
+        {
+          "name": "دوشنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "سه شنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "چهارشنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "پنجشنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "جمعه",
+          "factor": 1,
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "d3f3",
+      "name": "test3",
+      "basePrice": 100,
+      "days": [
+        {
+          "name": "شنبه",
+          "factor": 1,
+          "checked": true
+        },
+        {
+          "name": "یکشنبه",
+          "factor": 1,
+          "checked": true
+        },
+        {
+          "name": "دوشنبه",
+          "factor": 1,
+          "checked": true
+        },
+        {
+          "name": "سه شنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "چهارشنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "پنجشنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "جمعه",
+          "factor": 1,
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "db04",
+      "name": "t",
+      "basePrice": 1000,
+      "days": [
+        {
+          "name": "شنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "یکشنبه",
+          "factor": 1,
+          "checked": true
+        },
+        {
+          "name": "دوشنبه",
+          "factor": 4,
+          "checked": true
+        },
+        {
+          "name": "سه شنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "چهارشنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "پنجشنبه",
+          "factor": 1,
+          "checked": false
+        },
+        {
+          "name": "جمعه",
+          "factor": 1,
+          "checked": false
+        }
+      ]
+    }
+  ]
+}
