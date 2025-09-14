@@ -31,8 +31,9 @@ export class Header {
 /////////its time to send the new resource to the backend but now i send to db.json with HTTP
 /////retuns it as an observable and insid it here we have callback function and its runs after http request
     this.resourceService.addResource(newResource).subscribe(() => {
+      this.resourceService.reloadTable()
       ///// here i fetch our list
-      this.resourceService.getResources().subscribe();
+      // this.resourceService.getResources().subscribe();
       //// now i need clear the input fields in the form so my user can add new resource
       this.newResourceName = '';
       this.newResourcePrice = 0;
@@ -45,6 +46,7 @@ export class Header {
     if (day) day.factor = this.newDayFactor;
 
     this.resourceService.getResources().subscribe(resources => {
+      this.resourceService.reloadTable()
       resources.forEach(res => this.resourceService.updateResource(res).subscribe());
     });
     this.newDayName = '';
