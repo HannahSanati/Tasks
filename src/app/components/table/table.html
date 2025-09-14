@@ -7,6 +7,7 @@
         <th *ngFor="let day of days">{{ day.name }}</th>
         <!-- underlying: might change in future versions, but now its all safe! -->
         <th>مجموع</th>
+        <th>عملیات</th>
       </tr>
     </thead>
     <tbody>
@@ -31,6 +32,11 @@
           </div>
         </td>
         <td>{{ getTotal(res) }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteResource(res.id!)">
+            حذف
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

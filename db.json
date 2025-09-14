@@ -85,9 +85,9 @@
       ]
     },
     {
-      "id": "35b9",
+      "id": "5111",
       "name": "test",
-      "basePrice": 10,
+      "basePrice": 100,
       "days": [
         {
           "name": "شنبه",

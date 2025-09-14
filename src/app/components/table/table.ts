@@ -12,7 +12,6 @@ import { Subscription, switchMap } from 'rxjs';
   styleUrls: ['./table.scss'],
 })
 export class Table implements OnInit, OnDestroy {
-
   resources: Resource[] = [];
   private resourceService = inject(ResourceService);
   reloadSubscription!: Subscription;
@@ -57,6 +56,11 @@ export class Table implements OnInit, OnDestroy {
       });
     }
   }
+deleteResource(id: number): void {
+  this.resourceService.deleteResource(id).subscribe(() => {
+    this.resourceService.reloadTable(); // refresh after delete
+  });
+}
     ///////for memory leak and we have to declare this unsubscribe to all hot observables
     ngOnDestroy(): void {
       if (this.reloadSubscription) {

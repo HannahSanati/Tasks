@@ -45,15 +45,14 @@ export class ResourceService {
   getResources(): Observable<Resource[]> {
     return this.http.get<Resource[]>(this.apiUrl);
   }
-
   addResource(resource: Resource): Observable<Resource> {
     return this.http.post<Resource>(this.apiUrl, resource);
   }
-
   updateResource(resource: Resource): Observable<Resource> {
     return this.http.put<Resource>(`${this.apiUrl}/${resource.id}`, resource);
   }
-
-
+  deleteResource(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
   ///////// i can add delete yohoooo!
 }
