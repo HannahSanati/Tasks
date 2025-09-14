@@ -12,7 +12,14 @@
     <tbody>
       <tr *ngFor="let res of resources">
         <td>{{ res.name }}</td>
-        <td>{{ res.basePrice }}</td>
+        <td>
+          <input
+            type="number"
+            class="form-control text-center"
+            [(ngModel)]="res.basePrice"
+            (ngModelChange)="updateBasePrice(res)"
+          />
+        </td>        
         <td *ngFor="let dayName of dayNames">
           <div class="form-check d-flex justify-content-center align-items-center">
             <input

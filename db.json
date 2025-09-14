@@ -3,7 +3,7 @@
     {
       "id": "5a1e",
       "name": "منابع انسانی",
-      "basePrice": 100,
+      "basePrice": 102,
       "days": [
         {
           "name": "شنبه",
@@ -45,7 +45,7 @@
     {
       "id": "32ac",
       "name": "ماشین آلات",
-      "basePrice": 200,
+      "basePrice": 202,
       "days": [
         {
           "name": "شنبه",

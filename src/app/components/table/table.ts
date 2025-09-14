@@ -50,14 +50,18 @@ export class Table implements OnInit, OnDestroy {
       0
     );
   }
-  ///////for memory leak and we have to declare this unsubscribe to all hot observables
-  ngOnDestroy(): void {
-    if (this.reloadSubscription) {
-      this.reloadSubscription.unsubscribe();
+
+  updateBasePrice(resource: Resource): void {
+    if (resource.id) {
+      this.resourceService.updateResource(resource).subscribe(() => {
+      });
     }
   }
-
-  editBaseprice(): void {
-
-  }
+    ///////for memory leak and we have to declare this unsubscribe to all hot observables
+    ngOnDestroy(): void {
+      if (this.reloadSubscription) {
+        this.reloadSubscription.unsubscribe();
+      }
+    }
+  
 }
