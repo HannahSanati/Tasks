@@ -54,5 +54,4 @@ export class ResourceService {
   deleteResource(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
-  ///////// i can add delete yohoooo!
 }

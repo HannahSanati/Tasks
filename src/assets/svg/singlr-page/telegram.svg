@@ -1,0 +1,75 @@
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="53"
+              height="53"
+              viewBox="0 0 53 53"
+            >
+              <defs>
+                <filter
+                  id="Rectangle_50"
+                  x="0"
+                  y="0"
+                  width="53"
+                  height="53"
+                  filterUnits="userSpaceOnUse"
+                >
+                  <feOffset dy="3" input="SourceAlpha" />
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feFlood flood-opacity="0.082" />
+                  <feComposite operator="in" in2="blur" />
+                  <feComposite in="SourceGraphic" />
+                </filter>
+              </defs>
+              <g
+                id="Group_212"
+                data-name="Group 212"
+                transform="translate(-868 -775)"
+              >
+                <g
+                  transform="matrix(1, 0, 0, 1, 868, 775)"
+                  filter="url(#Rectangle_50)"
+                >
+                  <rect
+                    id="Rectangle_50-2"
+                    data-name="Rectangle 50"
+                    width="35"
+                    height="35"
+                    rx="13"
+                    transform="translate(9 6)"
+                    fill="#fff"
+                  />
+                </g>
+                <g
+                  id="Iconly_Two-tone_Send"
+                  data-name="Iconly/Two-tone/Send"
+                  transform="translate(883.143 787.139)"
+                >
+                  <g id="Send" transform="translate(2.5 2.5)">
+                    <line
+                      id="Stroke-1"
+                      x1="5.416"
+                      y2="5.416"
+                      transform="translate(6.877 4.863)"
+                      fill="none"
+                      stroke="#d5d5d5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      opacity="0.4"
+                    />
+                    <path
+                      id="Stroke-3"
+                      d="M6.877,10.28.536,6.4A1.12,1.12,0,0,1,.81,4.37L15.781.046a1.119,1.119,0,0,1,1.384,1.4L12.722,16.3a1.12,1.12,0,0,1-2.03.261L6.877,10.28"
+                      transform="translate(0 0)"
+                      fill="none"
+                      stroke="#d5d5d5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      fill-rule="evenodd"
+                    />
+                  </g>
+                </g>
+              </g>
+            </svg>

@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top px-3" dir="rtl">
+  <a class="navbar-brand d-flex align-items-center" href="#">
+    <img src="../../../../assets/svg/navbar/logo.svg" alt="Logo" height="40" />
+  </a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    (click)="toggleMenu()"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div
+    class="collapse navbar-collapse d-flex justify-content-between align-items-center"
+    [class.show]="isMenuOpen"
+  >
+    <ul class="navbar-nav d-flex align-items-center gap-3">
+      <li *ngFor="let item of visibleMenuItems" class="nav-item d-flex align-items-center">
+        <a [href]="item.link" class="nav-link d-flex align-items-center">
+          {{ item.label }}
+          <img [src]="item.svg" alt="" class="ms-1" height="16" />
+        </a>
+      </li>
+
+      <li *ngIf="hiddenMenuItems.length" class="nav-item dropdown">
+        <ul class="dropdown-menu" [class.show]="isMoreOpen">
+          <li *ngFor="let item of hiddenMenuItems">
+            <a class="dropdown-item d-flex align-items-center" [href]="item.link">
+              {{ item.label }}
+              <img [src]="item.svg" alt="" class="ms-2" height="16" />
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="d-flex align-items-center gap-2">
+      <button class="btn btn-outline-primary d-flex align-items-center">
+        ایجاد دوره
+        <img src="../../../../assets/svg/navbar/plus.svg" alt="" class="ms-2" height="20" />
+      </button>
+      <button class="btn btn-primary d-flex align-items-center">
+        ورود / ثبت نام
+        <img src="../../../../assets/svg/navbar/man.svg" alt="" class="ms-2" height="20" />
+      </button>
+    </div>
+  </div>
+</nav>
