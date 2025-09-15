@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ResourceService, Resource, DayFactor } from '../../services/resource.service';
+import { ResourceService, Resource, DayFactor } from '../../../services/resource.service';
 import { Subscription, switchMap } from 'rxjs';
 
 @Component({
@@ -52,20 +52,18 @@ export class Table implements OnInit, OnDestroy {
 
   updateBasePrice(resource: Resource): void {
     if (resource.id) {
-      this.resourceService.updateResource(resource).subscribe(() => {
-      });
+      this.resourceService.updateResource(resource).subscribe(() => {});
     }
   }
-deleteResource(id: number): void {
-  this.resourceService.deleteResource(id).subscribe(() => {
-    this.resourceService.reloadTable(); // refresh after delete
-  });
-}
-    ///////for memory leak and we have to declare this unsubscribe to all hot observables
-    ngOnDestroy(): void {
-      if (this.reloadSubscription) {
-        this.reloadSubscription.unsubscribe();
-      }
+  deleteResource(id: number): void {
+    this.resourceService.deleteResource(id).subscribe(() => {
+      this.resourceService.reloadTable(); // refresh after delete
+    });
+  }
+  ///////for memory leak and we have to declare this unsubscribe to all hot observables
+  ngOnDestroy(): void {
+    if (this.reloadSubscription) {
+      this.reloadSubscription.unsubscribe();
     }
-  
+  }
 }

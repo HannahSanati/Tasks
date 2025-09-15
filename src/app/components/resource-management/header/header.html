@@ -9,11 +9,16 @@
       <div class="col-md-5">
         <!-- md: responsive -->
         <label class="form-label">نام منبع</label>
-        <input type="text" class="form-control" placeholder="مثال: منابع انسانی" [(ngModel)]="newResourceName">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="مثال: منابع انسانی"
+          [(ngModel)]="newResourceName"
+        />
       </div>
       <div class="col-md-3">
         <label class="form-label">قیمت پایه</label>
-        <input type="number" class="form-control" placeholder="0" [(ngModel)]="newResourcePrice">
+        <input type="number" class="form-control" placeholder="0" [(ngModel)]="newResourcePrice" />
         <!-- Two-way binding, Update variable when user types -->
       </div>
       <div class="col-md-2">
@@ -27,11 +32,16 @@
     <div class="row g-3 align-items-end">
       <div class="col-md-4">
         <label class="form-label">روز</label>
-        <input type="text" class="form-control" placeholder="مثال: شنبه با ضریب 1.2" [(ngModel)]="newDayName">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="مثال: شنبه با ضریب 1.2"
+          [(ngModel)]="newDayName"
+        />
       </div>
       <div class="col-md-3">
         <label class="form-label">ضریب</label>
-        <input type="number" class="form-control" placeholder="1.0" [(ngModel)]="newDayFactor">
+        <input type="number" class="form-control" placeholder="1.0" [(ngModel)]="newDayFactor" />
       </div>
       <div class="col-md-2">
         <button class="btn btn-success w-100" (click)="addDay()">ثبت روز</button>

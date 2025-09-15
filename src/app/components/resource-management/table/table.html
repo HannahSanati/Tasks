@@ -20,22 +20,21 @@
             [(ngModel)]="res.basePrice"
             (ngModelChange)="updateBasePrice(res)"
           />
-        </td>        
+        </td>
         <td *ngFor="let dayName of dayNames">
           <div class="form-check d-flex justify-content-center align-items-center">
             <input
               class="form-check-input me-2"
               type="checkbox"
               [checked]="getDayForResource(res, dayName).checked"
-              (change)="toggleDay(res, getDayForResource(res, dayName))">
+              (change)="toggleDay(res, getDayForResource(res, dayName))"
+            />
             <span>{{ getDayForResource(res, dayName).factor }}</span>
           </div>
         </td>
         <td>{{ getTotal(res) }}</td>
         <td>
-          <button class="btn btn-danger btn-sm" (click)="deleteResource(res.id!)">
-            حذف
-          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteResource(res.id!)">حذف</button>
         </td>
       </tr>
     </tbody>

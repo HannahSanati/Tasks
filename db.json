@@ -85,34 +85,34 @@
       ]
     },
     {
-      "id": "5111",
+      "id": "accc",
       "name": "test",
-      "basePrice": 100,
+      "basePrice": 6,
       "days": [
         {
           "name": "شنبه",
-          "factor": 1,
-          "checked": false
+          "factor": 3,
+          "checked": true
         },
         {
           "name": "یکشنبه",
           "factor": 1,
-          "checked": false
+          "checked": true
         },
         {
           "name": "دوشنبه",
           "factor": 1,
-          "checked": false
+          "checked": true
         },
         {
           "name": "سه شنبه",
           "factor": 1,
-          "checked": false
+          "checked": true
         },
         {
           "name": "چهارشنبه",
           "factor": 1,
-          "checked": false
+          "checked": true
         },
         {
           "name": "پنجشنبه",
