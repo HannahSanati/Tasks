@@ -1,0 +1,49 @@
+<section class="container-fluid">
+    <div class="row flex-nowrap scroll-container">
+      <div
+        class="col-xl-3 col-lg-4 col-md-4 col-sm-5 col-8 course-container"
+        *ngFor="let course of courses"
+      >
+        <div class="card course-card card-custom">
+          <img
+            class="card-img-top"
+            [src]="course.imagePath"
+            [alt]="course.title"
+          />
+  
+          <div class="card-body border-0">
+            <h5 class="course-card-title">{{ course.title }}</h5>
+  
+            <div class="d-flex justify-content-start flex-wrap gap-2 mt-3">
+              <img src="svg/course-card/calender.svg" alt="Date Icon" />
+              <p class="course-card-text m-0">{{ course.day }}</p>
+              <span>|</span>
+              <p class="course-card-text m-0">{{ course.date }}</p>
+              <span>|</span>
+              <p class="course-card-text m-0">{{ course.time }}</p>
+            </div>
+  
+            <div class="d-flex justify-content-start flex-wrap gap-2 mt-1">
+              <img src="svg/course-card/mapicon.svg" alt="Location Icon" />
+              <p class="course-card-text fw-bold m-0">{{ course.mode }}</p>
+              <span>|</span>
+              <p class="course-card-text m-0">{{ course.location }}</p>
+            </div>
+  
+            <div class="d-flex justify-content-start flex-wrap gap-2 mt-1">
+              <img src="svg/course-card/tag.svg" alt="Price Icon" />
+              <p class="course-card-text m-0">{{ course.price }}</p>
+              <p class="course-card-text m-0">{{ course.currency }}</p>
+            </div>
+          </div>
+  
+          <div class="course-card-footer d-flex align-items-center">
+            <img [src]="course.organizerImage" alt="Organizer" />
+            <p class="course-card-footer-title text-muted">برگزار کننده</p>
+            <p class="course-card-text">{{ course.organizer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
