@@ -1,0 +1,68 @@
+.follower-box {
+    max-width: 350px;
+  }
+  
+  .follower-card {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: #fff;
+    padding: 20px;
+  }
+  
+  .organizer .title {
+    font-weight: 600;
+    color: #555;
+  }
+  .organizer .name {
+    font-weight: 700;
+    color: #007bff;
+  }
+  
+  .stats {
+    margin: 20px 0;
+  }
+  .stat {
+    text-align: center;
+  }
+  .value {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .label {
+    font-size: 13px;
+  }
+  .divider {
+    width: 1px;
+    height: 30px;
+    background: #ddd;
+  }
+  
+  .actions .btn {
+    flex: 1;
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .btn-follow {
+    background: #3ea8ff;
+    color: #fff;
+    border: none;
+  }
+  .btn-gray {
+    background: #f1f1f1;
+    border: none;
+    color: #333;
+  }
+  
+  .desc {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+  }
+  
+  .recommendation {
+    font-size: 13px;
+    color: #666;
+  }

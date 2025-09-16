@@ -1,52 +1,25 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top px-3" dir="rtl">
-  <a class="navbar-brand d-flex align-items-center" href="#">
-    <img src="../../../../assets/svg/navbar/logo.svg" alt="Logo" height="40" />
+<nav class="navbar fixed-top px-4 py-2 shadow-sm" dir="rtl">
+  <a class="navbar-brand d-flex align-items-center ms-4" href="#">
+    <img src="svg/navbar/logo.svg" alt="Logo" height="40" />
   </a>
 
-  <button
-    class="navbar-toggler"
-    type="button"
-    (click)="toggleMenu()"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <ul class="navbar-nav flex-row align-items-center gap-4 me-4">
+    <li *ngFor="let item of menuItems" class="nav-item d-flex align-items-center">
+      <a [href]="item.link" class="nav-link d-flex align-items-center">
+        {{ item.label }}
+        <img [src]="item.svg" alt="{{ item.label }}" height="18" class="me-2" />
+      </a>
+    </li>
+  </ul>
 
-  <div
-    class="collapse navbar-collapse d-flex justify-content-between align-items-center"
-    [class.show]="isMenuOpen"
-  >
-    <ul class="navbar-nav d-flex align-items-center gap-3">
-      <li *ngFor="let item of visibleMenuItems" class="nav-item d-flex align-items-center">
-        <a [href]="item.link" class="nav-link d-flex align-items-center">
-          {{ item.label }}
-          <img [src]="item.svg" alt="" class="ms-1" height="16" />
-        </a>
-      </li>
-
-      <li *ngIf="hiddenMenuItems.length" class="nav-item dropdown">
-        <ul class="dropdown-menu" [class.show]="isMoreOpen">
-          <li *ngFor="let item of hiddenMenuItems">
-            <a class="dropdown-item d-flex align-items-center" [href]="item.link">
-              {{ item.label }}
-              <img [src]="item.svg" alt="" class="ms-2" height="16" />
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-
-    <div class="d-flex align-items-center gap-2">
-      <button class="btn btn-outline-primary d-flex align-items-center">
-        ایجاد دوره
-        <img src="../../../../assets/svg/navbar/plus.svg" alt="" class="ms-2" height="20" />
-      </button>
-      <button class="btn btn-primary d-flex align-items-center">
-        ورود / ثبت نام
-        <img src="../../../../assets/svg/navbar/man.svg" alt="" class="ms-2" height="20" />
-      </button>
-    </div>
+  <div class="d-flex align-items-center gap-2 me-4">
+    <button class="btn-create d-flex align-items-center">
+      ایجاد دوره
+      <img src="svg/navbar/plus.svg" alt="" height="18" class="me-2" />
+    </button>
+    <button class="btn-login d-flex align-items-center">
+      ورود / ثبت نام
+      <img src="svg/navbar/man.svg" alt="" height="18" class="me-2" />
+    </button>
   </div>
 </nav>

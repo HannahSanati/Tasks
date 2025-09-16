@@ -14,12 +14,12 @@ export class Navbar implements OnInit {
   isMoreOpen = false;
 
   menuItems = [
-    { label: 'دوره ها', link: '#', svg: '../../../../assets/svg/navbar/dore.svg' },
-    { label: 'دسته بندی', link: '#', svg: '../../../../assets/svg/navbar/dastebandi.svg' },
-    { label: 'برگزار کنندگان', link: '#', svg: '../../../../assets/svg/navbar/brgzr.svg' },
-    { label: 'تماس با ما', link: '#', svg: '../../../../assets/svg/navbar/phone.svg' },
-    { label: 'درباره ما', link: '#', svg: '../../../../assets/svg/navbar/about.svg' },
-    { label: 'قوانین و مقررات', link: '#', svg: '../../../../assets/svg/navbar/role.svg' },
+    { label: 'دوره ها', link: '#', svg: 'svg/navbar/dore.svg' },
+    { label: 'دسته بندی', link: '#', svg: 'svg/navbar/dastebandi.svg' },
+    { label: 'برگزار کنندگان', link: '#', svg: 'svg/navbar/brgzr.svg' },
+    { label: 'تماس با ما', link: '#', svg: 'svg/navbar/phone.svg' },
+    { label: 'درباره ما', link: '#', svg: 'svg/navbar/about.svg' },
+    { label: 'قوانین و مقررات', link: '#', svg: 'svg/navbar/role.svg' },
   ];
 
   visibleMenuItems = [...this.menuItems];
