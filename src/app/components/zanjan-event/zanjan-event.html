@@ -2,7 +2,6 @@
 
 <div class="page-container container-fluid mt-5">
   <div class="row">
-
     <main class="col-lg-8 col-md-12 mb-4">
       <app-banner-slider></app-banner-slider>
 
@@ -23,7 +22,7 @@
             <p class="card-text2 m-0">خرمدره</p>
           </div>
 
-          <button class="custom-primary-btn farhangi-btn">فرهنگی و هنری</button>
+          <button class="btn btn-outline-primary rounded-pill px-3 py-1 search-btn">فرهنگی و هنری</button>
         </div>
       </div>
       <app-description class="mt-4"></app-description>
@@ -32,36 +31,31 @@
       <app-course-schedule class="mt-4"></app-course-schedule>
       <app-faq-card class="mt-4"></app-faq-card>
 
+      <div class="d-flex flex-wrap card-body-top justify-content-between align-items-center mt-4">
+        <p class="m-0 fw-bold">برچسب‌ها</p>
+        <div class="d-flex flex-wrap gap-2">
+          <button class="btn btn-outline-primary rounded-pill px-3 py-1 search-btn">
+            دوره فتوشاپ
+          </button>
+          <button class="btn btn-outline-primary rounded-pill px-3 py-1 search-btn">
+            سمینار مدیریت
+          </button>
+          <button class="btn btn-outline-primary rounded-pill px-3 py-1 search-btn">
+            وبینار کسب و کار
+          </button>
+        </div>
+      </div>
     </main>
 
     <aside class="col-lg-4 col-md-12 mb-4 d-flex flex-column gap-3">
       <app-followers></app-followers>
       <app-schedule-card></app-schedule-card>
+      <app-cost-card></app-cost-card>
     </aside>
-
   </div>
 </div>
 
-
-<!-- <div class="col-lg-8 col-md-12 mb-4 order-3">
-        <app-title-describe></app-title-describe>
-  
-        <app-teacher-card></app-teacher-card>
-        <app-precourse-card></app-precourse-card>
-  
-        <app-course-schedule></app-course-schedule>
-  
-        <app-faq-card></app-faq-card>
-  
-        <div class="d-flex flex-wrap align-items-center gap-3 mt-4">
-          <p class="m-0">برچسب ها</p>
-          <div class="d-flex gap-2">
-            <button class="custom-primary-btn search-btn ">دوره فتوشاپ</button>
-            <button class="custom-primary-btn search-btn ">سمینار مدیریت</button>
-            <button class="custom-primary-btn search-btn ">وبینار کسب و کار</button>
-          </div>
-        </div>
-        
+<!--    
       </div>
   
       <div class="col-lg-4 col-md-12 secound-col max-h">

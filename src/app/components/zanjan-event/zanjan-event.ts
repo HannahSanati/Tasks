@@ -8,10 +8,11 @@ import { CourseTeacher } from "./course-teacher/course-teacher";
 import { CoursePrerequisites } from "./course-prerequisites/course-prerequisites";
 import { CourseSchedule } from './course-schedule/course-schedule';
 import { FaqCard } from "./faq-card/faq-card";
+import { CostCard } from "./cost-card/cost-card";
 
 @Component({
   selector: 'app-zanjan-event',
-  imports: [Navbar, ScheduleCard, Followers, BannerSlider, Description, CourseTeacher, CoursePrerequisites, CourseSchedule, FaqCard],
+  imports: [Navbar, ScheduleCard, Followers, BannerSlider, Description, CourseTeacher, CoursePrerequisites, CourseSchedule, FaqCard, CostCard],
   templateUrl: './zanjan-event.html',
   styleUrl: './zanjan-event.scss'
 })
