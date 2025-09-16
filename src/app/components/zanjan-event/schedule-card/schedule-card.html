@@ -1,5 +1,5 @@
 <div class="schedule-card p-3 bg-white shadow-sm rounded">
-  <!-- Dates -->
+
   <div class="d-flex justify-content-between mb-3">
     <div class="d-flex flex-column">
       <span class="label text-muted small">شروع:</span>
@@ -13,19 +13,16 @@
     </div>
   </div>
 
-  <!-- Calendar -->
+
   <div class="calendar border rounded p-2">
-    <!-- Month / Year -->
     <div class="d-flex justify-content-center mb-2">
       <span class="month-title fw-bold">{{ monthName }} {{ year }}</span>
     </div>
 
-    <!-- Week Header -->
     <div class="week-header d-flex justify-content-between text-center small text-muted mb-1">
       <span *ngFor="let day of weekDays" class="flex-fill">{{ day }}</span>
     </div>
 
-    <!-- Days -->
     <div class="calendar-days d-flex flex-wrap">
       <span
         *ngFor="let day of days"
