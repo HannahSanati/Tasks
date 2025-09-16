@@ -2,8 +2,7 @@
     direction: rtl;
     background: #f8fcff;
     min-height: 100vh;
-    padding: 20px;
-    padding-top: 80px;
+    padding-top: 20px;
   }
   
   .content {
@@ -22,7 +21,6 @@
     app-followers,
     app-schedule-card {
       width: 100%;     
-      max-width: 350px;
     }
   }
 

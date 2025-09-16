@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
+<div class="page-container">
 
-<div class="page-container container-fluid mt-5">
+<div class="page-container container mt-5">
   <div class="row">
     <main class="col-lg-8 col-md-12 mb-4">
       <app-banner-slider></app-banner-slider>
@@ -33,7 +34,7 @@
       <app-course-schedule class="mt-4"></app-course-schedule>
       <app-faq-card class="mt-4"></app-faq-card>
 
-      <div class="d-flex flex-wrap card-body-top justify-content-between align-items-center mt-4">
+      <div class="d-flex flex-wrap card-body-top  align-items-center mt-4 gap-2">
         <p class="m-0 fw-bold">برچسب‌ها</p>
         <div class="d-flex flex-wrap gap-2">
           <button class="btn btn-outline-primary rounded-pill px-3 py-1 search-btn">
@@ -56,12 +57,17 @@
     </aside>
   </div>
 
+</div>
 
-  <div class="d-flex justify-content-center my-4">
-    <img src="svg/landing-page/uni-hat.svg" alt="" />
-    <p class="m-0 fw-bold fs-3">دوره‌های مشابه</p>
+  <div class="row justify-content-center my-4 mx-2">
+    <div class="d-flex align-items-center justify-content-end gap-2 col-7">
+      <img src="svg/landing-page/uni-hat.svg" alt="" />
+      <p class="m-0 fw-bold fs-3">دوره‌های مشابه</p>
+    </div>
+    <div class="d-flex align-items-center  col-5 justify-content-end">
+      <button class="custom-primary-btn see-btn ">مشاهده همه</button>
+    </div>
   </div>
-  <button class="custom-primary-btn see-btn ">مشاهده همه</button>
   <section class="container-fluid my-5">
     <app-course-cards></app-course-cards>
   </section>
@@ -76,5 +82,5 @@
   </section>
 
   <app-footer></app-footer>
-</div>
 
+</div>
