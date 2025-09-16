@@ -1,8 +1,12 @@
 .schedule-card {
-  max-width: 300px;
+  width: 100%;
+  max-width: 350px; 
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+  padding: 20px; 
+  display: flex;
+  flex-direction: column;
 
   .calendar {
     .month-title {
