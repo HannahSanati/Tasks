@@ -1,0 +1,51 @@
+<div class="mt-4">
+  <div class="card shadow-sm rounded-4 p-4 card-custom faq-card">
+    <h5 class="section-title mb-3">سوالات متداول</h5>
+
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item" *ngFor="let faq of faqs; let i = index">
+        <h2 class="accordion-header" [id]="'heading' + i">
+          <button
+            class="accordion-button d-flex justify-content-between align-items-center"
+            [ngClass]="{ collapsed: openIndex !== i }"
+            type="button"
+            (click)="toggleAccordion(i)"
+          >
+            <div class="d-flex align-items-center gap-2">
+              <img src="svg/faq-card/questionmark.svg" alt="question" />
+              <span>{{ faq.question }}</span>
+            </div>
+            <span class="custom-arrow" [ngClass]="{ rotated: openIndex === i }">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="7.253"
+                height="12.005"
+                viewBox="0 0 7.253 12.005"
+              >
+                <path
+                  d="M7663.33,2539.964l-4.235,4.235,2.471,2.47,1.765,1.764"
+                  transform="translate(-7657.845 -2538.196)"
+                  fill="none"
+                  stroke="#cecece"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                />
+              </svg>
+            </span>
+          </button>
+        </h2>
+
+        <div
+          [id]="'collapse' + i"
+          class="accordion-collapse collapse"
+          [ngClass]="{ show: openIndex === i }"
+        >
+          <div class="accordion-body text-secondary">
+            {{ faq.answer }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
