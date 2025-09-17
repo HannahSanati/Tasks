@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './schedule-card.scss'
 })
 export class ScheduleCard implements OnInit {
-  startDate = new Date(2024, 9, 16); // 16 مهر 1403
-  endDate = new Date(2024, 9, 18);   // 18 مهر 1403
+  startDate = new Date(2024, 9, 16);
+  endDate = new Date(2024, 9, 18); 
   startTime = '۲۱:۰۰';
   endTime = '۲۱:۰۰';
 
