@@ -5,10 +5,11 @@ import { Table } from "../app/components/resource-management/table/table";
 import { Navbar } from "./components/zanjan-event/navbar/navbar";
 import { ScheduleCard } from "./components/zanjan-event/schedule-card/schedule-card";
 import { ZanjanEvent } from './components/zanjan-event/zanjan-event';
+import { AuthenticationFlow } from "./components/authentication-flow/authentication-flow";
 
 @Component({
   selector: 'app-root',
-  imports: [ ZanjanEvent],
+  imports: [ZanjanEvent, AuthenticationFlow],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
