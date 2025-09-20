@@ -18,7 +18,7 @@ export class Login {
   showPassword = false;
   showConfirmCode = false;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router){
     this.loginForm = this.fb.group({
       phone: ['', [Validators.required, Validators.minLength(10)]],
     });
