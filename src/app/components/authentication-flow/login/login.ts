@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,67 +18,54 @@ export class Login {
   showPassword = false;
   showConfirmCode = false;
 
-  constructor(private fb: FormBuilder) {
-    // Phone input form
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       phone: ['', [Validators.required, Validators.minLength(10)]]
     });
 
-    // Password form (only if phone exists in system)
     this.passwordForm = this.fb.group({
       password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]]
     });
 
-    // Confirm code form (for new users)
     this.confirmForm = this.fb.group({
       code: ['', [Validators.required]]
     });
   }
 
-  // Step 1: Check phone number
   checkPhone() {
     const phone = this.loginForm.value.phone;
-    console.log('Phone entered:', phone);
-
-    // Simulate backend check
-    if (phone === '1234567890') {
-      // If phone already has a password
-      this.showPassword = true;
-      this.showConfirmCode = false;
-    } else {
-      // If new phone, require confirmation code
-      this.showPassword = false;
-      this.showConfirmCode = true;
-    }
+    this.authService.checkPhone(phone).subscribe(res => {
+      if (res.hasPassword) {
+        this.showPassword = true;
+        this.showConfirmCode = false;
+      } else {
+        this.showPassword = false;
+        this.showConfirmCode = true;
+        // this is for sending SMS
+        this.authService.loginSms(phone, '').subscribe();
+      }
+    }, err => console.error(err));
   }
 
-  // Step 2a: Login with password
   login() {
+    const phone = this.loginForm.value.phone;
     const password = this.passwordForm.value.password;
-    console.log('Password entered:', password);
-
-    if (password === '1234') {
-      localStorage.setItem('token', 'fake-jwt-token');
-      console.log('✅ Login successful, token saved to localStorage');
-      // Redirect to panel
-      // this.router.navigate(['/panel']);
-    } else {
-      console.log('❌ Wrong password');
-    }
+    this.authService.loginPassword(phone, password).subscribe(res => {
+      localStorage.setItem('token', res.token);
+      this.router.navigate(['/panel']);
+    }, err => console.error('Wrong password or error', err));
   }
 
-  // Step 2b: Confirm with code
   confirm() {
+    const phone = this.loginForm.value.phone;
     const code = this.confirmForm.value.code;
-    console.log('Code entered:', code);
-
-    if (code === '9999') {
-      localStorage.setItem('token', 'fake-jwt-token');
-      console.log('✅ Confirmation successful, token saved to localStorage');
-      // Redirect to panel
-      // this.router.navigate(['/panel']);
-    } else {
-      console.log('❌ Invalid code');
-    }
+    this.authService.loginSms(phone, code).subscribe(res => {
+      localStorage.setItem('token', res.token);
+      this.router.navigate(['/panel']);
+    }, err => console.error('Invalid code or error', err));
   }
 }
