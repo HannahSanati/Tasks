@@ -9,7 +9,7 @@ import { AuthenticationFlow } from "./components/authentication-flow/authenticat
 
 @Component({
   selector: 'app-root',
-  imports: [ZanjanEvent, AuthenticationFlow],
+  imports: [ZanjanEvent, AuthenticationFlow, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
