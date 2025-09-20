@@ -1,61 +1,60 @@
-<div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6 col-lg-4">
-        <div class="card shadow-lg">
-          <div class="card-body">
-            <h3 class="card-title text-center mb-4">ثبت نام</h3>
-  
-            <form [formGroup]="loginForm" (ngSubmit)="checkPhone()">
-              <div class="mb-3">
-                <label for="phone" class="form-label">شماره همراه</label>
-                <input
-                  type="text"
-                  id="phone"
-                  class="form-control"
-                  formControlName="phone"
-                  placeholder="09123456789"
-                />
-              </div>
-              <div class="d-grid mb-3">
-                <button type="submit" class="btn btn-primary">ثبت</button>
-              </div>
-            </form>
-  
-            <form *ngIf="showPassword" [formGroup]="passwordForm" (ngSubmit)="login()">
-              <div class="mb-3">
-                <label for="password" class="form-label">رمز عبور</label>
-                <input
-                  type="password"
-                  id="password"
-                  class="form-control"
-                  formControlName="password"
-                  maxlength="4"
-                  placeholder="Enter 4-digit password"
-                />
-              </div>
-              <div class="d-grid mb-3">
-                <button type="submit" class="btn btn-success">ثبت نام</button>
-              </div>
-            </form>
-  
-            <form *ngIf="showConfirmCode" [formGroup]="confirmForm" (ngSubmit)="confirm()">
-              <div class="mb-3">
-                <label for="code" class="form-label">کد تایید</label>
-                <input
-                  type="text"
-                  id="code"
-                  class="form-control"
-                  formControlName="code"
-                  placeholder="کد تایید ارسال شده را وارد کنید"
-                />
-              </div>
-              <div class="d-grid">
-                <button type="submit" class="btn btn-warning">تایید</button>
-              </div>
-            </form>
-  
-          </div>
+<div class="container mt-5 col-md-6 col-lg-4 justify-content-center">
+  <div class="card shadow-lg">
+    <div class="card-body">
+      <h3 class="card-title text-center mb-4">ثبت نام</h3>
+
+
+      <form [formGroup]="loginForm" (ngSubmit)="checkPhone()">
+        <div class="mb-3">
+          <label for="phone" class="form-label">شماره همراه</label>
+          <input
+            type="text"
+            id="phone"
+            class="form-control"
+            formControlName="phone"
+            placeholder="09123456789"
+          />
         </div>
-      </div>
+        <div class="d-grid mb-3">
+          <button type="submit" class="btn btn-primary">ارسال کد</button>
+        </div>
+      </form>
+
+
+      <form *ngIf="showPassword" [formGroup]="passwordForm" (ngSubmit)="login()">
+        <div class="mb-3">
+          <label for="password" class="form-label">رمز عبور</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            formControlName="password"
+            maxlength="4"
+            placeholder=""
+          />
+        </div>
+        <div class="d-grid mb-3">
+          <button type="submit" class="btn btn-success">ورود</button>
+        </div>
+      </form>
+
+
+      <form *ngIf="showConfirmCode" [formGroup]="confirmForm" (ngSubmit)="confirm()">
+        <div class="mb-3">
+          <label for="code" class="form-label">کد تایید</label>
+          <input
+            type="text"
+            id="code"
+            class="form-control"
+            formControlName="code"
+            placeholder="کد تایید ارسال شده را وارد کنید"
+          />
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-warning">تایید</button>
+        </div>
+      </form>
+
     </div>
   </div>
+</div>
