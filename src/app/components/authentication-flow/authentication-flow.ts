@@ -4,7 +4,7 @@ import { Login } from "./login/login";
 
 @Component({
   selector: 'app-authentication-flow',
-  imports: [ Login],
+  imports: [Login, RouterOutlet],
 
   templateUrl: './authentication-flow.html',
   styleUrl: './authentication-flow.scss'
