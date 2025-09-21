@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,13 +17,14 @@ export class Login {
 
   showPassword = false;
   showConfirmCode = false;
+  phoneChecked = false;
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router){
     this.loginForm = this.fb.group({
       phone: ['', [Validators.required, Validators.minLength(10)]],
     });
     this.passwordForm = this.fb.group({
-      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
+      password: ['', [Validators.required]],
     });
     this.confirmForm = this.fb.group({
       code: ['', [Validators.required]],
@@ -36,44 +37,42 @@ export class Login {
 
     this.authService.checkPhone(phone).subscribe(
       (res: any) => {
+        this.phoneChecked = true;
         if (res.data?.hasPassword) {
           this.showPassword = true;
           this.showConfirmCode = false;
         } else {
           this.showPassword = false;
           this.showConfirmCode = true;
-
-          //sending a SMS
-          this.authService.loginSms(phone, '').subscribe((smsRes) => {
-            console.log('SMS sent:', smsRes);
-          });
         }
       },
-      (err) => console.error('Error checking phone', err)
+      (err) => console.error(err)
     );
   }
 
-  //Login with password
   login() {
     const phone = this.loginForm.value.phone;
     const password = this.passwordForm.value.password;
-
+  
     if (!phone || !password) return;
-
+  
     this.authService.loginPassword(phone, password).subscribe(
       (res: any) => {
-        if (res.token) {
-          localStorage.setItem('token', res.token);
-          this.router.navigate(['/panel']);
-        } else {
-          console.error('Token missing in response:', res);
+        const token = res?.data?.token;   
+        if (token) {
+          localStorage.setItem('token', token); 
+          console.log('token saved');
+          this.router.navigate(['/authentication-flow/panel']);
+          } else {
+          console.error('token missing in res', res);
         }
       },
-      (err) => console.error('Wrong password or error', err)
+      (err) => {
+        console.error('login failed', err);
+      }
     );
   }
 
-  //Login with code confirm
   confirm() {
     const mobile = this.loginForm.value.phone;
     const code = this.confirmForm.value.code;
@@ -82,14 +81,16 @@ export class Login {
 
     this.authService.loginSms(mobile, code).subscribe(
       (res: any) => {
-        if (res.token) {
-          localStorage.setItem('token', res.token);
-          this.router.navigate(['/panel']);
+        const token = res?.data?.token;   
+        if (token) {
+          localStorage.setItem('token', token); 
+          console.log('token saved');
+          this.router.navigate(['/authentication-flow/panel']);
         } else {
-          console.error('Token missing in SMS response', res);
+          console.error('token missing in res', res);
         }
       },
-      (err) => console.error('Invalid code or error', err)
+      (err) => console.error('SMS login failed', err)
     );
   }
 }

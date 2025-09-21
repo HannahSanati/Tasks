@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from "@angular/router";
 import { Login } from "./login/login";
+import { Panel } from "./panel/panel";
 
 @Component({
   selector: 'app-authentication-flow',
-  imports: [Login, RouterOutlet],
+  imports: [Login, RouterOutlet, Panel],
 
   templateUrl: './authentication-flow.html',
   styleUrl: './authentication-flow.scss'
