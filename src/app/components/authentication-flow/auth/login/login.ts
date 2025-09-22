@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../auth/auth.service';
-import { Router, RouterOutlet } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { Router, RouterOutlet, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './login.html',
   styleUrls: ['./login.scss'],
 })
@@ -62,7 +62,7 @@ export class Login {
         if (token) {
           localStorage.setItem('token', token); 
           console.log('token saved');
-          this.router.navigate(['/authentication-flow/panel']);
+          this.router.navigate(['authentication-flow/panel']);
           } else {
           console.error('token missing in res', res);
         }
@@ -85,7 +85,7 @@ export class Login {
         if (token) {
           localStorage.setItem('token', token); 
           console.log('token saved');
-          this.router.navigate(['/authentication-flow/panel']);
+          this.router.navigate(['authentication-flow/panel']);
         } else {
           console.error('token missing in res', res);
         }
