@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from "@angular/router";
-import { Login } from "./login/login";
+import { Panel } from "./panel/panel";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-authentication-flow',
-  imports: [ Login],
+  imports: [RouterOutlet, CommonModule],
 
   templateUrl: './authentication-flow.html',
   styleUrl: './authentication-flow.scss'
@@ -14,6 +15,6 @@ export class AuthenticationFlow {
 
   logout() {
     localStorage.removeItem('token');
-    this.router.navigate(['/login']);
+    this.router.navigate(['authentication-flow/login']);
   }
 }

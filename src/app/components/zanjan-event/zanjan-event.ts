@@ -12,6 +12,7 @@ import { CostCard } from './cost-card/cost-card';
 import { Footer } from './footer/footer';
 import { EventCard } from './event-card/event-card';
 import { CourseCards } from "./course-cards/course-cards";
+import { RouterModule } from "@angular/router";
 
 @Component({
   selector: 'app-zanjan-event',
@@ -28,7 +29,8 @@ import { CourseCards } from "./course-cards/course-cards";
     CostCard,
     Footer,
     EventCard,
-    CourseCards
+    CourseCards,
+    RouterModule
 ],
   templateUrl: './zanjan-event.html',
   styleUrl: './zanjan-event.scss',

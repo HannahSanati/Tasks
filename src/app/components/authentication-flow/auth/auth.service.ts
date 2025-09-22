@@ -12,19 +12,15 @@ export class AuthService {
   checkPhone(phone: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/auth/check/mobile`, { mobile: phone });
   }
-
   loginPassword(phone: string, password: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/auth/login/password`, { mobile: phone, password });
   }
-
   loginSms(phone: string, code: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/auth/login/sms`, { mobile: phone, code });
   }
-
   resendCode(phone: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/auth/resend/confirmcode`, { mobile: phone });
   }
-
   setPassword(phone: string, password: string): Observable<any> {
     return this.http.put(`${this.baseUrl}/auth/set/password`, { mobile: phone, password });
   }
