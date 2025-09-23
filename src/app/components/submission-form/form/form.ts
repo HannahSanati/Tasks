@@ -28,7 +28,7 @@ export class Form {
 
     this.options = this.service.getOptions();
 
-    // Remove numbers from name & lastName dynamically
+    // dont allow numbers in name input
     this.form.get('name')?.valueChanges.subscribe(val => {
       const cleaned = val.replace(/[0-9]/g, '');
       if (val !== cleaned) this.form.get('name')?.setValue(cleaned, { emitEvent: false });
