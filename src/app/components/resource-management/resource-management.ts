@@ -8,7 +8,6 @@ import { RouterModule } from "@angular/router";
   selector: 'app-resource-management',
   imports: [
     Header,
-    ScheduleCard,
     Table,
     RouterModule
 ],

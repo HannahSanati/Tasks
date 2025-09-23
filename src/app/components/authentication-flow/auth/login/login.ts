@@ -9,6 +9,7 @@ import { Router, RouterOutlet, RouterModule } from '@angular/router';
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './login.html',
   styleUrls: ['./login.scss'],
+  standalone: true
 })
 export class Login {
   loginForm: FormGroup;
@@ -62,7 +63,7 @@ export class Login {
         if (token) {
           localStorage.setItem('token', token); 
           console.log('token saved');
-          this.router.navigate(['authentication-flow/panel']);
+          this.router.navigate(['auth/panel']);
           } else {
           console.error('token missing in res', res);
         }
@@ -85,7 +86,7 @@ export class Login {
         if (token) {
           localStorage.setItem('token', token); 
           console.log('token saved');
-          this.router.navigate(['authentication-flow/panel']);
+          this.router.navigate(['auth/panel']);
         } else {
           console.error('token missing in res', res);
         }
