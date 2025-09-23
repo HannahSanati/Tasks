@@ -1,0 +1,65 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="p-3">
+
+    <!-- Name -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input id="name" type="text" class="form-control"
+             formControlName="name"
+             [value]="form.value.name | removeNumbers">
+    </div>
+  
+    <!-- Last Name -->
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name:</label>
+      <input id="lastName" type="text" class="form-control"
+             formControlName="lastName"
+             [value]="form.value.lastName | removeNumbers">
+    </div>
+  
+    <!-- Mobile -->
+    <div class="mb-3">
+      <label for="mobile" class="form-label">Mobile:</label>
+      <input id="mobile" type="text" class="form-control"
+             formControlName="mobile" placeholder="10 digits">
+    </div>
+  
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input id="email" type="email" class="form-control"
+             formControlName="email" placeholder="example@domain.com">
+    </div>
+  
+    <!-- Birthday -->
+    <div class="mb-3">
+      <label for="birthday" class="form-label">Birthday (DD/MM/YYYY):</label>
+      <input id="birthday" type="text" class="form-control"
+             formControlName="birthday" placeholder="DD/MM/YYYY">
+    </div>
+  
+    <!-- Options List with Directive -->
+    <div class="mb-3">
+      <label class="form-label">Choose up to 3 options:</label>
+      <div class="d-flex flex-wrap gap-2">
+        <button type="button" class="btn btn-outline-primary"
+                *ngFor="let option of options"
+                (click)="selectOption(option)"
+                appLimitSelection
+                [selectedItems]="selected"
+                [limit]="3">
+          {{option}}
+        </button>
+      </div>
+  
+      <!-- Selected Items -->
+      <div class="mt-2">
+        <span class="badge bg-success me-1" *ngFor="let sel of selected">
+          {{sel}}
+          <span style="cursor:pointer" (click)="removeOption(sel)">x</span>
+        </span>
+      </div>
+    </div>
+  
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>

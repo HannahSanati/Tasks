@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { Panel } from './components/authentication-flow/panel/panel';
 
 export const routes: Routes = [
   {
@@ -18,6 +17,11 @@ export const routes: Routes = [
     path: 'Z-event',
     loadComponent: () =>
       import('./components/zanjan-event/zanjan-event').then((c) => c.ZanjanEvent),
+  },
+  {
+    path: 'S-form',
+    loadComponent: () =>
+      import('./components/submission-form/submission-form').then((c) => c.SubmissionForm),
   },
   {
     path: '',

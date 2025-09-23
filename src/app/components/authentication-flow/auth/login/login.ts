@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router, RouterOutlet, RouterModule } from '@angular/router';
+import { Identity } from '../identity';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,9 @@ export class Login {
   showConfirmCode = false;
   phoneChecked = false;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router){
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router
+    ,private identity: Identity
+  ){
     this.loginForm = this.fb.group({
       phone: ['', [Validators.required, Validators.minLength(10)]],
     });
@@ -61,7 +64,7 @@ export class Login {
       (res: any) => {
         const token = res?.data?.token;   
         if (token) {
-          localStorage.setItem('token', token); 
+          this.identity.storeToken(token);
           console.log('token saved');
           this.router.navigate(['auth/panel']);
           } else {
@@ -84,7 +87,7 @@ export class Login {
       (res: any) => {
         const token = res?.data?.token;   
         if (token) {
-          localStorage.setItem('token', token); 
+          this.identity.storeToken(token); 
           console.log('token saved');
           this.router.navigate(['auth/panel']);
         } else {
