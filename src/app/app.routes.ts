@@ -1,15 +1,27 @@
 import { Routes } from '@angular/router';
 import { Panel } from './components/authentication-flow/panel/panel';
-import { AuthGuard } from './components/authentication-flow/auth/auth.guard';
 
 export const routes: Routes = [
   {
     path: 'auth',
-    loadChildren: () => import('./components/authentication-flow/auth/auth.routes').then((c) => c.authRoute),
+    loadChildren: () =>
+      import('./components/authentication-flow/auth/auth.routes').then((c) => c.authRoute),
   },
   {
-    path: 'panel',
-    component: Panel,
+    path: 'R-management',
+    loadComponent: () =>
+      import('./components/resource-management/resource-management').then(
+        (c) => c.ResourceManagement
+      ),
   },
-
+  {
+    path: 'Z-event',
+    loadComponent: () =>
+      import('./components/zanjan-event/zanjan-event').then((c) => c.ZanjanEvent),
+  },
+  {
+    path: '',
+    redirectTo: 'auth',
+    pathMatch: 'full',
+  },
 ];

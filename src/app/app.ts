@@ -4,7 +4,7 @@ import { AuthenticationFlow } from "./components/authentication-flow/authenticat
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterModule, AuthenticationFlow],
+  imports: [RouterOutlet, RouterModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

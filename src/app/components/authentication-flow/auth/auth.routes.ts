@@ -10,14 +10,14 @@ export const authRoute: Routes = [
     component: AuthenticationFlow,
     children: [
       {
-        path: 'login',
+        path: '',
         component: Login,
       },
       {
         path: 'panel',
         component: Panel,
+        canActivate: [AuthGuard],
       },
-        //   canActivate: [AuthGuard]
     ],
   },
 ];
