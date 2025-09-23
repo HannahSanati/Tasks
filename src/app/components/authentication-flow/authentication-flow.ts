@@ -6,7 +6,7 @@ import { Login } from "./auth/login/login";
 
 @Component({
   selector: 'app-authentication-flow',
-  imports: [RouterOutlet, CommonModule, Login],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './authentication-flow.html',
   styleUrl: './authentication-flow.scss',
   standalone: true,
