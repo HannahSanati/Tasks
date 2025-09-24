@@ -10,7 +10,7 @@ export class LimitSelection {
   @HostListener('click', ['$event.target'])
   onClick(target: any) {
     if (this.selectedItems.length >= this.limit) {
-      alert(`You can only select ${this.limit} items`);
+      alert(`You can ${this.limit} items`);
     }
   }
 }

@@ -25,30 +25,21 @@ export class Form {
       email: ['', [Validators.required, Validators.email]],
       birthday: ['', [Validators.required, Validators.pattern(/^\d{2}\/\d{2}\/\d{4}$/)]]
     });
-
     this.options = this.service.getOptions();
-
     // dont allow numbers in name input
     this.form.get('name')?.valueChanges.subscribe(val => {
-      const cleaned = val.replace(/[0-9]/g, '');
-      if (val !== cleaned) this.form.get('name')?.setValue(cleaned, { emitEvent: false });
-    });
-    this.form.get('lastName')?.valueChanges.subscribe(val => {
-      const cleaned = val.replace(/[0-9]/g, '');
-      if (val !== cleaned) this.form.get('lastName')?.setValue(cleaned, { emitEvent: false });
+      const check = val.replace(/[0-9]/g, '');
+      if (val !== check) this.form.get('name')?.setValue(check, { emitEvent: false });
     });
   }
-
   selectOption(option: string) {
     if (this.selected.length < 3 && !this.selected.includes(option)) {
       this.selected.push(option);
     }
   }
-
   removeOption(option: string) {
     this.selected = this.selected.filter(item => item !== option);
   }
-
   submit() {
     console.log('Form Values:', this.form.value);
     console.log('Selected Options:', this.selected);
